@@ -84,8 +84,14 @@ content:
     format: json
     filename: "{name}.json"
     fields:
-      - name: name
-        label: Program Name
+      - - name: name
+        label: Program Name (Afaan Oromoo)
+        type: string
+      - name: name_am
+        label: Program Name (Amharic)
+        type: string
+      - name: name_en
+        label: Program Name (English)
         type: string
       - name: day
         label: Day
