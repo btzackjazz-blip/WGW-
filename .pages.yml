@@ -1,0 +1,25 @@
+media:
+  input: .
+  output: /
+  extensions:
+    - jpg
+    - jpeg
+    - png
+    - webp
+
+content:
+  - name: church
+    label: Church Information
+    type: file
+    path: data/church.json
+    format: json
+    fields:
+      - name: name
+        label: Church Name
+        type: string
+      - name: address
+        label: Address
+        type: text
+      - name: phone
+        label: Phone Number
+        type: string
