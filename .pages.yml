@@ -15,7 +15,7 @@ content:
     format: json
     fields:
       - name: name
-        label: Church Name
+        label: Church Name (Afaan Oromoo)
         type: string
       - name: address
         label: Address
@@ -23,3 +23,154 @@ content:
       - name: phone
         label: Phone Number
         type: string
+      - name: email
+        label: Email
+        type: string
+      - name: history_om
+        label: Church History (Afaan Oromoo)
+        type: rich-text
+      - name: history_am
+        label: Church History (Amharic)
+        type: rich-text
+      - name: history_en
+        label: Church History (English)
+        type: rich-text
+      - name: mission_om
+        label: Mission (Afaan Oromoo)
+        type: text
+      - name: mission_am
+        label: Mission (Amharic)
+        type: text
+      - name: mission_en
+        label: Mission (English)
+        type: text
+
+  - name: leadership
+    label: Church Leaders
+    type: collection
+    path: data/leaders
+    format: json
+    filename: "{name}.json"
+    fields:
+      - name: name
+        label: Name
+        type: string
+      - name: position_om
+        label: Position (Afaan Oromoo)
+        type: string
+      - name: position_am
+        label: Position (Amharic)
+        type: string
+      - name: position_en
+        label: Position (English)
+        type: string
+      - name: photo
+        label: Photo
+        type: image
+      - name: biography_om
+        label: Biography (Afaan Oromoo)
+        type: text
+      - name: biography_am
+        label: Biography (Amharic)
+        type: text
+      - name: biography_en
+        label: Biography (English)
+        type: text
+
+  - name: programs
+    label: Church Programs
+    type: collection
+    path: data/programs
+    format: json
+    filename: "{name}.json"
+    fields:
+      - name: name
+        label: Program Name
+        type: string
+      - name: day
+        label: Day
+        type: string
+      - name: time
+        label: Time
+        type: string
+      - name: description_om
+        label: Description (Afaan Oromoo)
+        type: text
+      - name: description_am
+        label: Description (Amharic)
+        type: text
+      - name: description_en
+        label: Description (English)
+        type: text
+
+  - name: videos
+    label: YouTube Videos
+    type: collection
+    path: data/videos
+    format: json
+    filename: "{title}.json"
+    fields:
+      - name: title
+        label: Video Title
+        type: string
+      - name: title_am
+        label: Title (Amharic)
+        type: string
+      - name: title_en
+        label: Title (English)
+        type: string
+      - name: youtube_url
+        label: YouTube Video URL
+        type: string
+      - name: description_om
+        label: Description (Afaan Oromoo)
+        type: text
+
+  - name: gallery
+    label: Photo Gallery
+    type: collection
+    path: data/gallery
+    format: json
+    filename: "{title}.json"
+    fields:
+      - name: title
+        label: Photo Title
+        type: string
+      - name: image
+        label: Upload Photo
+        type: image
+      - name: description_om
+        label: Description (Afaan Oromoo)
+        type: text
+
+  - name: announcements
+    label: Announcements and Events
+    type: collection
+    path: data/announcements
+    format: json
+    filename: "{title}.json"
+    fields:
+      - name: title
+        label: Title (Afaan Oromoo)
+        type: string
+      - name: title_am
+        label: Title (Amharic)
+        type: string
+      - name: title_en
+        label: Title (English)
+        type: string
+      - name: date
+        label: Event Date
+        type: date
+      - name: description_om
+        label: Description (Afaan Oromoo)
+        type: rich-text
+      - name: description_am
+        label: Description (Amharic)
+        type: rich-text
+      - name: description_en
+        label: Description (English)
+        type: rich-text
+      - name: image
+        label: Event Photo
+        type: image
