@@ -92,7 +92,36 @@ function changeLanguage(language){
  const t=translations[language]; if(!t)return;
  const elements={"church-name":t.churchName,"nav-home":t.navHome,"nav-about":t.navAbout,"nav-schedule":t.navSchedule,"nav-contact":t.navContact,"welcome-title":t.welcomeTitle,"welcome-text":t.welcomeText,"about-title":t.aboutTitle,"about-text":t.aboutText,"schedule-title":t.scheduleTitle,"sunday-title":t.sundayTitle,"schedule-description":t.scheduleDescription,"contact-title":t.contactTitle,"address-label":t.addressLabel,"address-text":t.addressText,"phone-label":t.phoneLabel,"phone-text":t.phoneText,"blessing-text":t.blessingText,"footer-name":t.churchName};
  Object.entries(elements).forEach(([id,value])=>{const el=document.getElementById(id);if(el)el.textContent=value;});
- document.documentElement.lang=language;
+async function loadChurchInfo() {
+  try {
+    const response = await fetch("data/church.json");
+
+    if (!response.ok) {
+      throw new Error("Church information could not be loaded");
+    }
+
+    const church = await response.json();
+
+    if (church.name) {
+      document.getElementById("church-name").textContent = church.name;
+      document.getElementById("footer-name").textContent = church.name;
+    }
+
+    if (church.address) {
+      document.getElementById("address-text").textContent = church.address;
+    }
+
+    if (church.phone) {
+      document.getElementById("phone-text").textContent = church.phone;
+    }
+
+  } catch (error) {
+    console.log("Using default church information:", error);
+  }
+}
+
+loadChurchInfo();
+  document.documentElement.lang=language;
  document.querySelectorAll(".language-buttons button").forEach(button=>{const active=button.dataset.language===language;button.classList.toggle("active",active);button.setAttribute("aria-pressed",String(active));});
 }
 document.getElementById("year").textContent=new Date().getFullYear();
